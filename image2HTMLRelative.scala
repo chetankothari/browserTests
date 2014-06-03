@@ -1,6 +1,6 @@
 /**
  * creats a html equivalent of the given image by mapping each pixel of the image to a 
- * div in html. the markup is not formatted and the divs are postioned relative to eachother
+ * div in html. the divs are postioned relative to eachother
  */
 
 import java.awt.Color
@@ -14,7 +14,7 @@ for(file <- args) {
      * renames the file to a .html file
      */
     val filePathSplit = file.split("/")
-    val newFileName = filePathSplit.last.split("[.]").head + ".html"
+    val newFileName = filePathSplit.last.split("[.]").head + "Relative.html"
     val newFilePath = filePathSplit.dropRight(1).mkString("","/", "/") + newFileName
     val srcImg = new File(file)
     val img = ImageIO.read(srcImg)
@@ -87,7 +87,7 @@ for(file <- args) {
         /**
          * wriites the html to a file in the same directory as the original image
          */
-    val xmlFormatter = new PrettyPrinter(80, 2)
+    val xmlFormatter = new PrettyPrinter(120, 2)
     val fileWriter = new PrintWriter(new File(newFilePath))
     fileWriter.write(xmlFormatter.format(html))
     fileWriter.close
