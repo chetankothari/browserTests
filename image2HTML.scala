@@ -107,7 +107,7 @@ for(file <- args) {
      */
     val xmlFormatter = new PrettyPrinter(120, 2)
     varients.zipWithIndex foreach { case(html, varientNo) =>
-        val fileWriter = new PrintWriter(new File(s"${baseFileName}varient${varientNo}.html"))
+        val fileWriter = new PrintWriter(new File(s"${baseFileName}Varient${varientNo}.html"))
         fileWriter.write(xmlFormatter.format(html))
         fileWriter.close
     }
