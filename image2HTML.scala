@@ -1,6 +1,6 @@
 /**
- * creats a html equivalent of the given image by mapping each pixel of the image to a 
- * div in html. the divs are postioned relative to eachother
+ * creats a html equivalents of the given image by mapping each pixel of the image to a 
+ * div in html.
  */
 
 import java.awt.Color
@@ -34,6 +34,9 @@ def toDiv(img: java.awt.image.BufferedImage, positioningType: Positioning) = {
                 case Absolute(classes) => <div class={classes.mkString(" ")} style={s"background-color:rgb($r, $g, $b); top: ${y}px; left: ${x}px;"}></div>
             }
         } toSeq
+        /**
+         * a row is created
+         */
         val row = <div class="imageRow" style={s"width: ${w}px;"}>{pixels}</div>
         row
     } toSeq
